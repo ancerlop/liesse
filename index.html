@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritora de Relatos | Premios y Publicaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-verano: #FF6B6B;
+            --color-invierno: #4D96FF;
+            --color-ideal: #6BCB77;
+            --color-fondo: #F8F5F0;
+            --color-texto: #333333;
+            --color-acento: #FFD93D;
+            --color-blanco: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-texto);
+            text-decoration: none;
+            z-index: 1001;
+        }
+        
+        .logo span {
+            color: var(--color-acento);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 500;
+            font-size: 18px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-acento);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Menú móvil */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--color-texto);
+            margin: 3px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(248, 245, 240, 0.8), rgba(248, 245, 240, 0.9)), 
+                        url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--color-acento);
+            color: var(--color-texto);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Premios Section */
+        .premios {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-acento);
+        }
+        
+        .premios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .premio-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .premio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .premio-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .premio-content {
+            padding: 25px;
+        }
+        
+        .premio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .premio-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Relatos Section */
+        .relatos {
+            padding: 100px 0;
+            background-color: var(--color-fondo);
+        }
+        
+        .season-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            background: var(--color-blanco);
+            border: 2px solid var(--color-texto);
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 700;
+            color: var(--color-texto);
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            min-width: 180px;
+        }
+        
+        .tab-btn.active {
+            color: var(--color-blanco);
+            border-color: transparent;
+        }
+        
+        .tab-btn[data-season="verano"]:hover, 
+        .tab-btn[data-season="verano"].active {
+            background: var(--color-verano);
+        }
+        
+        .tab-btn[data-season="invierno"]:hover, 
+        .tab-btn[data-season="invierno"].active {
+            background: var(--color-invierno);
+        }
+        
+        .tab-btn[data-season="ideal"]:hover, 
+        .tab-btn[data-season="ideal"].active {
+            background: var(--color-ideal);
+        }
+        
+        .season-content {
+            display: none;
+        }
+        
+        .season-content.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .relatos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .relato-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .relato-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .relato-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--color-texto);
+        }
+        
+        .relato-card .fecha {
+            display: inline-block;
+            background-color: var(--color-verano);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .relato-card.invierno .fecha {
+            background-color: var(--color-invierno);
+        }
+        
+        .relato-card.ideal .fecha {
+            background-color: var(--color-ideal);
+        }
+        
+        .relato-card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .leer-mas {
+            display: inline-block;
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .leer-mas::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-acento);
+            transition: width 0.3s ease;
+        }
+        
+        .leer-mas:hover::after {
+            width: 100%;
+        }
+        
+        /* Microrrelatos */
+        .microrrelatos {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .microrrelatos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .micro-card {
+            background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            position: relative;
+            transition: all 0.4s ease;
+            border-left: 4px solid var(--color-acento);
+        }
+        
+        .micro-card:hover {
+            transform: rotate(1deg) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        
+        .micro-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .micro-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .micro-card .autor {
+            text-align: right;
+            font-weight: 500;
+            color: var(--color-texto);
+        }
+        
+        /* Contacto */
+        .contacto {
+            padding: 100px 0;
+            background-color: var(--color-fondo);
+        }
+        
+        .contacto-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .contacto-info {
+            flex: 1;
+        }
+        
+        .contacto-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #333 0%, #111 100%);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            padding-right: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-acento);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--color-acento);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            /* Tablet styles */
+            .contacto-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .season-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile styles */
+            .header-content {
+                padding: 10px 0;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--color-fondo);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
+                z-index: 1000;
+                padding: 80px 20px 20px;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 30px;
+            }
+            
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+            
+            .hero {
+                margin-top: 60px;
+                height: auto;
+                padding: 80px 0;
+            }
+            
+            .premios, .relatos, .microrrelatos, .contacto {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 30px;
+                padding-right: 0;
+            }
+            
+            .microrrelatos-grid, .premios-grid, .relatos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Small mobile adjustments */
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contacto-form {
+                padding: 25px;
+            }
+            
+            .tab-btn {
+                min-width: auto;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Escritora<span>Creativa</span></a>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#premios">Premios</a></li>
+                    <li><a href="#relatos">Relatos</a></li>
+                    <li><a href="#microrrelatos">Microrrelatos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h1>Historias que inspiran, palabras que perduran</h1>
+            <p>Descubre el mundo de relatos breves y microrrelatos de una escritora premiada. Cada historia es una ventana a emociones y reflexiones que resuenan en el alma.</p>
+            <a href="#relatos" class="btn">Explorar relatos</a>
+        </div>
+    </section>
+
+    <!-- Premios Section -->
+    <section class="premios" id="premios">
+        <div class="container">
+            <h2 class="section-title">Premios y Publicaciones</h2>
+            <div class="premios-grid">
+                <div class="premio-card">
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-content">
+                        <h3>Premio Nacional de Cuento Corto</h3>
+                        <p>Ganadora 2022 por el relato "El susurro del viento"</p>
+                        <a href="#" class="btn">Leer más</a>
+                    </div>
+                </div>
+                
+                <div class="premio-card">
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-content">
+                        <h3>Concurso Internacional de Microrrelatos</h3>
+                        <p>Finalista 2021 con "La última hoja del otoño"</p>
+                        <a href="#" class="btn">Leer más</a>
+                    </div>
+                </div>
+                
+                <div class="premio-card">
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-content">
+                        <h3>Publicación en Revista Literaria</h3>
+                        <p>Selección de tres relatos para la edición especial de verano 2023</p>
+                        <a href="#" class="btn">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relatos Section -->
+    <section class="relatos" id="relatos">
+        <div class="container">
+            <h2 class="section-title">Relatos Breves</h2>
+            
+            <div class="season-tabs">
+                <button class="tab-btn active" data-season="verano">Verano</button>
+                <button class="tab-btn" data-season="invierno">Invierno</button>
+                <button class="tab-btn" data-season="ideal">Publicados en Ideal</button>
+            </div>
+            
+            <div class="season-content active" id="verano-content">
+                <div class="relatos-grid">
+                    <div class="relato-card">
+                        <span class="fecha">Verano 2023</span>
+                        <h3>La Brisa del Atardecer</h3>
+                        <p>En aquellos días calurosos de julio, cuando el sol quemaba con furia, ella encontraba refugio bajo la sombra del viejo almendro...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card">
+                        <span class="fecha">Verano 2022</span>
+                        <h3>El Susurro del Mar</h3>
+                        <p>Las olas acariciaban la orilla con ritmo constante, como el latido de un corazón gigante. Cada noche, él caminaba por la playa buscando respuestas en el horizonte...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card">
+                        <span class="fecha">Verano 2021</span>
+                        <h3>El Jardín Secreto</h3>
+                        <p>Detrás de la casa abandonada, entre enredaderas salvajes, había un pequeño paraíso que solo florecía en los días más calurosos del año...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="season-content" id="invierno-content">
+                <div class="relatos-grid">
+                    <div class="relato-card invierno">
+                        <span class="fecha">Invierno 2023</span>
+                        <h3>La Primera Niebla</h3>
+                        <p>Cuando la niebla cubrió el valle por primera vez aquel invierno, todo cambió. Las formas familiares se volvieron fantasmas, los sonidos se ahogaron en el algodón blanco...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card invierno">
+                        <span class="fecha">Invierno 2022</span>
+                        <h3>El Refugio del Abuelo</h3>
+                        <p>En la cabaña de montaña, con la chimenea crepitando, el abuelo contaba historias de otros inviernos, de tiempos en que la nieve aislaba el mundo exterior durante semanas...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card invierno">
+                        <span class="fecha">Invierno 2021</span>
+                        <h3>Huellas en la Nieve</h3>
+                        <p>Aquel amanecer invernal, descubrí huellas que no eran mías. Pequeñas, delicadas, como de pájaro, pero que seguían un camino imposible hacia el bosque...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="season-content" id="ideal-content">
+                <div class="relatos-grid">
+                    <div class="relato-card ideal">
+                        <span class="fecha">Ideal 2023</span>
+                        <h3>El Eco de las Montañas</h3>
+                        <p>Publicado en la edición de primavera de la revista Ideal. Un viaje interior a través de paisajes exteriores, donde cada paso revela una verdad olvidada...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card ideal">
+                        <span class="fecha">Ideal 2022</span>
+                        <h3>La Última Hoja</h3>
+                        <p>Seleccionado para la antología de otoño de Ideal. Una reflexión sobre el paso del tiempo y la belleza de los finales que son también comienzos...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                    
+                    <div class="relato-card ideal">
+                        <span class="fecha">Ideal 2021</span>
+                        <h3>El Puente de Cristal</h3>
+                        <p>Mención especial en el concurso de relatos de Ideal. Una metáfora sobre las relaciones humanas y la fragilidad de los vínculos que construimos...</p>
+                        <a href="#" class="leer-mas">Leer completo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microrrelatos Section -->
+    <section class="microrrelatos" id="microrrelatos">
+        <div class="container">
+            <h2 class="section-title">Microrrelatos</h2>
+            <div class="microrrelatos-grid">
+                <div class="micro-card">
+                    <h3>El Faro</h3>
+                    <p>Encendía su luz cada noche, no para guiar barcos perdidos, sino para que ella supiera que, en la oscuridad, alguien aún la esperaba.</p>
+                    <div class="autor">- La última señal</div>
+                </div>
+                
+                <div class="micro-card">
+                    <h3>El Reloj</h3>
+                    <p>Cuando el abuelo murió, su viejo reloj de bolsillo se detuvo a la misma hora. Treinta años después, al abrir la caja, volvió a latir.</p>
+                    <div class="autor">- Tiempo suspendido</div>
+                </div>
+                
+                <div class="micro-card">
+                    <h3>La Llave</h3>
+                    <p>Encontró una llave antigua en el desván. No abría ningún candado conocido, pero cada noche soñaba con la puerta que estaba destinada a abrir.</p>
+                    <div class="autor">- La puerta de los sueños</div>
+                </div>
+                
+                <div class="micro-card">
+                    <h3>El Espejo</h3>
+                    <p>El día que dejó de mentirse a sí misma, su reflejo en el espejo sonrió por primera vez.</p>
+                    <div class="autor">- Verdad reflejada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contacto-container">
+                <div class="contacto-info">
+                    <h3>¡Hablemos de historias!</h3>
+                    <p>Si quieres contactarme para colaboraciones, lecturas o simplemente compartir tu opinión sobre mis relatos, estaré encantada de escucharte.</p>
+                    <p>Puedes escribirme directamente a través del formulario o encontrarme en mis redes sociales.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contacto-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Escritora Creativa</h3>
+                    <p>Relatos que nacen del corazón y palabras que buscan resonar en el alma. Explorando emociones a través de la ficción breve.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <p><a href="#inicio" style="color: #bbb; text-decoration: none;">Inicio</a></p>
+                    <p><a href="#premios" style="color: #bbb; text-decoration: none;">Premios</a></p>
+                    <p><a href="#relatos" style="color: #bbb; text-decoration: none;">Relatos</a></p>
+                    <p><a href="#microrrelatos" style="color: #bbb; text-decoration: none;">Microrrelatos</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> contacto@escritoracreativa.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Escritora Creativa. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            
+            // Bloquear scroll cuando el menú está abierto
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Tabs para sección de relatos
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const seasonContents = document.querySelectorAll('.season-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remover clase active de todos los botones
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Obtener el contenido a mostrar
+                    const season = btn.getAttribute('data-season');
+                    
+                    // Ocultar todos los contenidos
+                    seasonContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Mostrar el contenido correspondiente
+                    document.getElementById(`${season}-content`).classList.add('active');
+                });
+            });
+            
+            // Smooth scrolling para enlaces de navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
