@@ -1284,6 +1284,23 @@
                 display: block;
                 padding: 5px 0;
             }
+
+            /* Menú móvil */
+            .menu-toggle {
+                display: none;
+                flex-direction: column;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .menu-toggle span {
+                height: 3px;
+                width: 25px;
+                background: var(--color-texto);
+                margin: 3px 0;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
             
             .menu-toggle {
                 display: flex;
@@ -1810,31 +1827,31 @@
 
     <script>
         // Código JavaScript anterior
+        // 1. Menú móvil
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
         
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // 2. Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Menú móvil
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
-            
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                nav.classList.toggle('active');
-                
-                if (nav.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // 2. Cerrar menú al hacer clic en un enlace
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    nav.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            });
+
             
             // 3. Tabs para sección de relatos
             const tabBtns = document.querySelectorAll('.tab-btn');
