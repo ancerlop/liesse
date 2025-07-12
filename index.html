@@ -1241,9 +1241,9 @@
                 font-size: clamp(2rem, 5vw, 2.8rem);
             }
             
-            .floating-quote {
+            /* .floating-quote {
                 display: none;
-            }
+            } */
         }
         
         @media (max-width: 768px) {
@@ -1344,6 +1344,17 @@
                 width: 100%;
                 border-radius: 3px;
                 padding: 15px;
+            }
+
+            .floating-quote {
+                position: relative;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                transform: rotate(0deg);
+                margin: 30px 0;
+                text-align: center;
+                font-size: 1.1rem;
             }
         }
 
