@@ -3,20 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escritora de Relatos | Premios y Publicaciones</title>
+    
+    <!-- SEO Mejorado -->
+    <title>Nombre de la Escritora | Relatos, Microrrelatos y Premios Literarios</title>
+    <meta name="description" content="Descubre los relatos y microrrelatos premiados de [Nombre de la Escritora]. Historias breves que inspiran, conmueven y perduran en el alma del lector.">
+    <meta name="keywords" content="escritora, relatos cortos, microrrelatos, literatura española, premios literarios, cuentos breves">
+    <meta name="author" content="Nombre de la Escritora">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Nombre de la Escritora | Relatos y Microrrelatos">
+    <meta property="og:description" content="Historias breves que inspiran, conmueven y perduran en el alma del lector.">
+    <meta property="og:image" content="https://tu-dominio.com/img/portada-social.jpg">
+    <meta property="og:url" content="https://tu-dominio.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nombre de la Escritora | Relatos y Microrrelatos">
+    <meta name="twitter:description" content="Historias breves que inspiran, conmueven y perduran en el alma del lector.">
+    <meta name="twitter:image" content="https://tu-dominio.com/img/portada-social.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tu-dominio.com">
+    
+    <!-- Precargas y recursos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;700&family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
+            /* Paleta más rica y literaria */
+            --color-tinta: #1A2238;
+            --color-papel: #F8F5F0;
+            --color-sepia: #E1D4C0;
+            --color-rojo-tinta: #9D3C4A;
+            --color-dorado: #C8AA6E;
+            --color-azul-medianoche: #2D4263;
+            --color-verde-viejo: #4B6F44;
+            --color-blanco: #ffffff;
+            --color-texto: #2B2B2B;
+            
+            /* Variables originales como fallback */
             --color-verano: #FF6B6B;
             --color-invierno: #4D96FF;
             --color-ideal: #6BCB77;
-            --color-fondo: #F8F5F0;
-            --color-texto: #333333;
-            --color-acento: #FFD93D;
-            --color-blanco: #ffffff;
+            --color-fondo: var(--color-papel);
+            --color-acento: var(--color-dorado);
         }
         
         * {
@@ -26,28 +60,69 @@
         }
         
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--color-fondo);
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--color-papel);
             color: var(--color-texto);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%232B2B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>') 0 24, auto;
+        }
+        
+        p {
+            font-size: 1.15rem;
+            letter-spacing: 0.01rem;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
         }
         
-        /* Header */
+        /* Elementos decorativos literarios */
+        .ink-splatter {
+            position: absolute;
+            opacity: 0.07;
+            z-index: -1;
+        }
+        
+        .ink-splatter.top-right {
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            transform: rotate(45deg);
+        }
+        
+        .ink-splatter.bottom-left {
+            bottom: -100px;
+            left: -100px;
+            width: 250px;
+            transform: rotate(-30deg);
+        }
+        
+        .quill-divider {
+            display: block;
+            width: 100px;
+            height: 30px;
+            margin: 40px auto;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23C8AA6E" d="M368.05 71.68L345.09 94.64C332.98 106.75 332.98 126.3 345.09 138.41L373.59 166.91C385.7 179.02 405.26 179.02 417.36 166.91L440.32 143.95L368.05 71.68zM272 311.1C272 271.8 301.8 240 343.1 240C355.1 240 365.6 242.7 375.1 248.3L283.7 156.9C233 106.2 147.9 106.2 97.19 156.9C46.48 207.6 46.48 292.7 97.19 343.4L343.4 589.6C359.7 605.9 383.8 613.1 407.7 608.5L471.4 594.5L507.3 558.6C522.6 543.3 522.6 518.7 507.3 503.4L376.6 372.7C372.5 380.5 368.6 390.7 368.1 400C366.9 419.7 375.1 440.1 392.6 453.6L461.4 522.4L421.8 562L362.9 577.4C350.9 580.3 337.1 577.5 327.9 568.3L47.27 287.7C15.42 255.8 15.42 203.5 47.27 171.7C79.12 139.8 131.4 139.8 163.3 171.7L243.7 252.1C253.1 269.5 272 289.8 272 311.1H272z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        /* Header mejorado con efecto de tinta */
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(to bottom, #ffffff, var(--color-papel));
+            box-shadow: 0 2px 15px rgba(0,0,0,0.07);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             padding: 15px 0;
+            border-bottom: 1px solid rgba(200, 170, 110, 0.2);
         }
         
         .header-content {
@@ -57,16 +132,33 @@
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--color-texto);
+            font-family: 'Italiana', serif;
+            font-size: 32px;
+            color: var(--color-tinta);
             text-decoration: none;
             z-index: 1001;
+            position: relative;
+            transition: all 0.5s ease;
+            letter-spacing: 1px;
+        }
+        
+        .logo:hover {
+            text-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
         }
         
         .logo span {
-            color: var(--color-acento);
+            color: var(--color-rojo-tinta);
+            font-style: italic;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-dorado), transparent);
         }
         
         nav ul {
@@ -80,46 +172,34 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--color-texto);
+            color: var(--color-tinta);
             font-weight: 500;
             font-size: 18px;
             position: relative;
             transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
         }
         
-        nav ul li a::after {
+        nav ul li a::before {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--color-acento);
+            height: 1px;
+            background-color: var(--color-rojo-tinta);
             transition: width 0.3s ease;
         }
         
-        nav ul li a:hover::after {
+        nav ul li a:hover {
+            color: var(--color-rojo-tinta);
+        }
+        
+        nav ul li a:hover::before {
             width: 100%;
         }
         
-        /* Menú móvil */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        .menu-toggle span {
-            height: 3px;
-            width: 25px;
-            background: var(--color-texto);
-            margin: 3px 0;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        
-        /* Hero Section */
+        /* Hero Section con parallax y efecto de escritura */
         .hero {
             height: 100vh;
             display: flex;
@@ -127,6 +207,7 @@
             position: relative;
             overflow: hidden;
             margin-top: 70px;
+            perspective: 10px;
         }
         
         .hero::before {
@@ -136,61 +217,144 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(248, 245, 240, 0.8), rgba(248, 245, 240, 0.9)), 
+            background: linear-gradient(rgba(248, 245, 240, 0.7), rgba(248, 245, 240, 0.8)), 
                         url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             z-index: -1;
+            transform: translateZ(-10px) scale(2);
         }
         
         .hero-content {
-            max-width: 600px;
-            animation: fadeInUp 1s ease;
+            max-width: 700px;
+            animation: fadeInUp 1.2s ease;
+            position: relative;
         }
         
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
             line-height: 1.2;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            animation: typewriter 3s steps(30) 0.5s forwards;
         }
         
         .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: 30px;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 90%;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--color-acento);
-            color: var(--color-texto);
+            background-color: var(--color-dorado);
+            color: var(--color-tinta);
             padding: 12px 30px;
-            border-radius: 30px;
+            border-radius: 3px;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
         
-        /* Premios Section */
+        /* Cita destacada flotante */
+        .floating-quote {
+            position: absolute;
+            right: -50px;
+            bottom: 80px;
+            width: 300px;
+            transform: rotate(3deg);
+            font-style: italic;
+            color: var(--color-rojo-tinta);
+            text-align: right;
+            animation: float 5s ease-in-out infinite;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .floating-quote::before {
+            content: '"';
+            font-size: 3rem;
+            line-height: 0;
+            position: relative;
+            top: 15px;
+        }
+        
+        .floating-quote::after {
+            content: '"';
+            font-size: 3rem;
+            line-height: 0;
+            position: relative;
+            top: 15px;
+            right: -5px;
+        }
+        
+        /* Premios Section mejorada con efectos literarios */
         .premios {
-            padding: 100px 0;
+            padding: 120px 0;
             background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            opacity: 0.04;
+            z-index: 0;
         }
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-size: clamp(2.2rem, 5vw, 2.8rem);
             text-align: center;
             margin-bottom: 60px;
             position: relative;
+            color: var(--color-tinta);
         }
         
         .section-title::after {
@@ -200,294 +364,742 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--color-acento);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-dorado), transparent);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: -30px;
+            margin-bottom: 60px;
+            color: var(--color-texto);
+            font-style: italic;
+            opacity: 0.8;
         }
         
         .premios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
         }
         
         .premio-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 3px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .premio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-rojo-tinta), var(--color-dorado));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
         
         .premio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-15px) rotateZ(1deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .premio-card:hover::before {
+            transform: scaleX(1);
         }
         
         .premio-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premio-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
         }
         
         .premio-content {
-            padding: 25px;
+            padding: 30px;
+            position: relative;
         }
         
         .premio-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--color-tinta);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .premio-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background-color: var(--color-dorado);
         }
         
         .premio-content p {
-            color: #666;
-            margin-bottom: 15px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
         
-        /* Relatos Section */
+        .premio-fecha {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--color-dorado);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        /* Relatos Section con efecto de libro abierto */
         .relatos {
-            padding: 100px 0;
-            background-color: var(--color-fondo);
+            padding: 120px 0;
+            background-color: var(--color-papel);
+            position: relative;
+        }
+        
+        .relatos::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/notebook.png');
+            opacity: 0.03;
+            z-index: 0;
         }
         
         .season-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
         }
         
         .tab-btn {
             background: var(--color-blanco);
-            border: 2px solid var(--color-texto);
-            padding: 12px 25px;
+            border: none;
+            padding: 14px 28px;
             font-size: 1rem;
             cursor: pointer;
             position: relative;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--color-texto);
-            transition: all 0.3s ease;
-            border-radius: 30px;
+            transition: all 0.4s ease;
+            border-radius: 3px;
             min-width: 180px;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            transition: all 0.3s ease;
         }
         
         .tab-btn.active {
             color: var(--color-blanco);
-            border-color: transparent;
+        }
+        
+        .tab-btn[data-season="verano"] {
+            color: var(--color-tinta);
+        }
+        
+        .tab-btn[data-season="verano"]::after {
+            background-color: var(--color-rojo-tinta);
         }
         
         .tab-btn[data-season="verano"]:hover, 
         .tab-btn[data-season="verano"].active {
-            background: var(--color-verano);
+            background: var(--color-rojo-tinta);
+            color: white;
+        }
+        
+        .tab-btn[data-season="invierno"] {
+            color: var(--color-tinta);
+        }
+        
+        .tab-btn[data-season="invierno"]::after {
+            background-color: var(--color-azul-medianoche);
         }
         
         .tab-btn[data-season="invierno"]:hover, 
         .tab-btn[data-season="invierno"].active {
-            background: var(--color-invierno);
+            background: var(--color-azul-medianoche);
+            color: white;
+        }
+        
+        .tab-btn[data-season="ideal"] {
+            color: var(--color-tinta);
+        }
+        
+        .tab-btn[data-season="ideal"]::after {
+            background-color: var(--color-verde-viejo);
         }
         
         .tab-btn[data-season="ideal"]:hover, 
         .tab-btn[data-season="ideal"].active {
-            background: var(--color-ideal);
+            background: var(--color-verde-viejo);
+            color: white;
+        }
+        
+        .tab-btn:hover::after {
+            height: 3px;
         }
         
         .season-content {
             display: none;
+            transform-origin: top center;
         }
         
         .season-content.active {
             display: block;
-            animation: fadeIn 0.8s ease;
+            animation: flipPage 0.8s ease;
         }
         
         .relatos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
         }
         
         .relato-card {
             background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 3px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .relato-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent var(--color-sepia) transparent transparent;
+            transition: all 0.3s ease;
+            z-index: 1;
         }
         
         .relato-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-10px);
+            box-shadow: 20px 20px 30px rgba(0,0,0,0.1);
+        }
+        
+        .relato-card:hover::before {
+            border-width: 0 70px 70px 0;
         }
         
         .relato-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            color: var(--color-texto);
+            color: var(--color-tinta);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .relato-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background-color: var(--color-dorado);
         }
         
         .relato-card .fecha {
             display: inline-block;
-            background-color: var(--color-verano);
+            background-color: var(--color-rojo-tinta);
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 5px 15px;
+            border-radius: 3px;
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-family: 'Quicksand', sans-serif;
         }
         
         .relato-card.invierno .fecha {
-            background-color: var(--color-invierno);
+            background-color: var(--color-azul-medianoche);
         }
         
         .relato-card.ideal .fecha {
-            background-color: var(--color-ideal);
+            background-color: var(--color-verde-viejo);
         }
         
         .relato-card p {
-            margin-bottom: 20px;
-            color: #555;
+            margin-bottom: 25px;
+            color: #444;
+            line-height: 1.8;
+            position: relative;
         }
         
         .leer-mas {
             display: inline-block;
-            color: var(--color-texto);
+            color: var(--color-tinta);
             text-decoration: none;
             font-weight: 500;
             position: relative;
+            font-family: 'Quicksand', sans-serif;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
         }
         
         .leer-mas::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-acento);
-            transition: width 0.3s ease;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-dorado);
+            transform: scaleX(0.3);
+            transform-origin: left;
+            transition: all 0.3s ease;
+        }
+        
+        .leer-mas:hover {
+            color: var(--color-rojo-tinta);
         }
         
         .leer-mas:hover::after {
-            width: 100%;
+            transform: scaleX(1);
+            background-color: var(--color-rojo-tinta);
         }
         
-        /* Microrrelatos */
+        /* Microrrelatos con efectos de tarjetas escritas a mano */
         .microrrelatos {
-            padding: 100px 0;
+            padding: 120px 0;
             background-color: white;
+            position: relative;
+        }
+        
+        .microrrelatos::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            opacity: 0.05;
         }
         
         .microrrelatos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
         }
         
         .micro-card {
-            background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            background: var(--color-papel);
+            border-radius: 3px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
             position: relative;
             transition: all 0.4s ease;
-            border-left: 4px solid var(--color-acento);
+            border-left: 3px solid var(--color-dorado);
+            transform: rotate(-1deg);
+            overflow: hidden;
+        }
+        
+        .micro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--color-papel) 1.5rem, rgba(200, 170, 110, 0.1) 1.6rem);
+            background-size: 100% 1.6rem;
+            z-index: -1;
+            opacity: 0.3;
         }
         
         .micro-card:hover {
-            transform: rotate(1deg) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform: rotate(1deg) translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-left-color: var(--color-rojo-tinta);
         }
         
         .micro-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--color-tinta);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .micro-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-dorado), transparent);
         }
         
         .micro-card p {
             font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
         }
         
         .micro-card .autor {
             text-align: right;
             font-weight: 500;
-            color: var(--color-texto);
+            color: var(--color-rojo-tinta);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
         
-        /* Contacto */
+        /* Slider de reseñas de lectores (nuevo) */
+        .reseñas {
+            padding: 120px 0;
+            background: linear-gradient(rgba(42, 53, 65, 0.95), rgba(42, 53, 65, 0.95)), url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            color: white;
+        }
+        
+        .reseñas .section-title {
+            color: white;
+        }
+        
+        .reseñas-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .reseña-slide {
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: all 0.8s ease;
+            transform: translateY(50px);
+        }
+        
+        .reseña-slide.active {
+            opacity: 1;
+            position: relative;
+            transform: translateY(0);
+        }
+        
+        .reseña-slide p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .reseña-autor {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-dorado);
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .reseña-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background-color: var(--color-dorado);
+            transform: scale(1.3);
+        }
+        
+        /* Contacto con efecto de "carta escrita" */
         .contacto {
-            padding: 100px 0;
-            background-color: var(--color-fondo);
+            padding: 120px 0;
+            background-color: var(--color-papel);
+            position: relative;
+        }
+        
+        .contacto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+            opacity: 0.05;
         }
         
         .contacto-container {
             display: flex;
-            gap: 50px;
+            gap: 60px;
             align-items: flex-start;
+            position: relative;
+            z-index: 1;
         }
         
         .contacto-info {
             flex: 1;
+            position: relative;
+        }
+        
+        .contacto-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--color-tinta);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .contacto-info p {
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         .contacto-form {
             flex: 1;
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 50px;
+            border-radius: 3px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+            position: relative;
+            transform: rotate(1deg);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .contacto-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+            opacity: 0.03;
+            z-index: -1;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
+            color: var(--color-tinta);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            background-color: rgba(248, 245, 240, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-dorado);
+            box-shadow: 0 0 0 2px rgba(200, 170, 110, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        
+        /* Nuevo boletín de suscripción */
+        .newsletter {
+            background-color: var(--color-sepia);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            opacity: 0.1;
+        }
+        
+        .newsletter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter h3 {
+            color: var(--color-tinta);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .newsletter-form input {
+            width: 60%;
+            padding: 15px 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 3px 0 0 3px;
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
         }
         
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
+        .newsletter-form button {
+            background-color: var(--color-tinta);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
         
-        /* Footer */
+        .newsletter-form button:hover {
+            background-color: var(--color-rojo-tinta);
+        }
+        
+        /* Footer mejorado con detalles literarios */
         footer {
-            background: linear-gradient(135deg, #333 0%, #111 100%);
+            background: linear-gradient(135deg, var(--color-tinta) 0%, #111 100%);
             color: white;
-            padding: 50px 0 20px;
+            padding: 80px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+            opacity: 0.3;
         }
         
         .footer-content {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-section {
             flex: 1;
-            padding-right: 30px;
+            padding-right: 40px;
         }
         
         .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
             position: relative;
+            color: var(--color-dorado);
+            font-family: 'Playfair Display', serif;
         }
         
         .footer-section h3::after {
@@ -496,46 +1108,55 @@
             bottom: -8px;
             left: 0;
             width: 40px;
-            height: 2px;
-            background-color: var(--color-acento);
+            height: 1px;
+            background-color: var(--color-dorado);
         }
         
         .footer-section p {
             margin-bottom: 15px;
             color: #bbb;
+            line-height: 1.7;
+        }
+        
+        .social-links {
+            margin-top: 25px;
         }
         
         .social-links a {
             display: inline-block;
             width: 40px;
             height: 40px;
-            background-color: #444;
+            background-color: rgba(255,255,255,0.05);
             color: white;
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
+            line-height: 42px;
             margin-right: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .social-links a:hover {
-            background-color: var(--color-acento);
-            transform: translateY(-3px);
+            background-color: var(--color-dorado);
+            transform: translateY(-3px) rotate(10deg);
+            color: var(--color-tinta);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #bbb;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
             font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            font-family: 'Quicksand', sans-serif;
         }
         
-        /* Animaciones */
+        /* Animaciones mejoradas */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -543,25 +1164,59 @@
             }
         }
         
-        @keyframes fadeIn {
+        @keyframes typewriter {
             from {
-                opacity: 0;
+                left: 0;
             }
             to {
-                opacity: 1;
+                left: 100%;
             }
         }
         
-        @keyframes pulse {
+        @keyframes float {
             0% {
-                transform: scale(1);
+                transform: translateY(0) rotate(3deg);
             }
             50% {
-                transform: scale(1.05);
+                transform: translateY(-10px) rotate(1deg);
+            }
+            100% {
+                transform: translateY(0) rotate(3deg);
+            }
+        }
+        
+        @keyframes flipPage {
+            0% {
+                opacity: 0;
+                transform: rotateX(-90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateX(0);
+            }
+        }
+        
+        @keyframes inkSplash {
+            0% {
+                transform: scale(0);
+                opacity: 0.8;
             }
             100% {
                 transform: scale(1);
+                opacity: 0;
             }
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Responsive */
@@ -569,7 +1224,7 @@
             /* Tablet styles */
             .contacto-container {
                 flex-direction: column;
-                gap: 30px;
+                gap: 40px;
             }
             
             .season-tabs {
@@ -580,6 +1235,14 @@
             .tab-btn {
                 width: 100%;
                 max-width: 300px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 5vw, 2.8rem);
+            }
+            
+            .floating-quote {
+                display: none;
             }
         }
         
@@ -593,13 +1256,14 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 80%;
                 height: 100vh;
-                background: var(--color-fondo);
+                background: var(--color-papel);
                 box-shadow: -5px 0 15px rgba(0,0,0,0.1);
                 transition: right 0.4s ease;
                 z-index: 1000;
-                padding: 80px 20px 20px;
+                padding: 100px 20px 20px;
+                border-left: 3px solid var(--color-dorado);
             }
             
             nav.active {
@@ -612,15 +1276,18 @@
             }
             
             nav ul li {
-                margin: 0 0 20px 0;
+                margin: 0 0 25px 0;
             }
             
             nav ul li a {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+                display: block;
+                padding: 5px 0;
             }
             
             .menu-toggle {
                 display: flex;
+                z-index: 1001;
             }
             
             .menu-toggle.active span:nth-child(1) {
@@ -638,11 +1305,11 @@
             .hero {
                 margin-top: 60px;
                 height: auto;
-                padding: 80px 0;
+                padding: 100px 0;
             }
             
-            .premios, .relatos, .microrrelatos, .contacto {
-                padding: 60px 0;
+            .premios, .relatos, .microrrelatos, .contacto, .reseñas {
+                padding: 80px 0;
             }
             
             .section-title {
@@ -654,29 +1321,142 @@
             }
             
             .footer-section {
-                margin-bottom: 30px;
+                margin-bottom: 40px;
                 padding-right: 0;
             }
             
             .microrrelatos-grid, .premios-grid, .relatos-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter-form input {
+                width: 100%;
+                margin-bottom: 15px;
+                border-radius: 3px;
+            }
+            
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 3px;
+                padding: 15px;
+            }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-texto);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .scroll-down:hover {
+            background-color: var(--color-dorado);
+            color: var(--color-tinta);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-7px) translateX(-50%);
+            }
+        }
+
+        /* NUEVO: Estilos para el efecto máquina de escribir */
+        #typewriter-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            min-height: 150px; /* Reservar espacio para evitar saltos */
+        }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: var(--color-tinta);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         
         @media (max-width: 480px) {
             /* Small mobile adjustments */
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .contacto-form {
-                padding: 25px;
+                padding: 30px;
+                transform: none;
             }
             
             .tab-btn {
                 min-width: auto;
-                padding: 10px 20px;
+                padding: 12px 20px;
                 font-size: 0.9rem;
+            }
+            
+            .micro-card {
+                transform: none;
+                padding: 25px;
+            }
+            
+            .micro-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .relato-card {
+                padding: 30px;
+            }
+        }
+
+        /* CORREGIDO: Asegurar que el formulario tenga padding correcto en móvil */
+        @media (max-width: 768px) {
+            .contacto-form {
+                padding: 30px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            
+            .form-group {
+                padding: 0;
+                width: 100%;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                box-sizing: border-box;
             }
         }
     </style>
@@ -685,7 +1465,7 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Escritora<span>Creativa</span></a>
+            <a href="#" class="logo">Liesse<span>Letras</span></a>
             
             <div class="menu-toggle">
                 <span></span>
@@ -705,54 +1485,74 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section con cambios -->
     <section class="hero" id="inicio">
         <div class="container hero-content">
-            <h1>Historias que inspiran, palabras que perduran</h1>
-            <p>Descubre el mundo de relatos breves y microrrelatos de una escritora premiada. Cada historia es una ventana a emociones y reflexiones que resuenan en el alma.</p>
-            <a href="#relatos" class="btn">Explorar relatos</a>
+            <!-- CAMBIADO: H1 con efecto máquina de escribir -->
+            <h1 id="typewriter-h1"></h1>
+            <p>Bienvenidos a mi universo literario. Aquí encontrarás relatos que nacen del silencio, 
+            historias que susurran al alma y personajes que permanecen cuando se cierra el libro.</p>
+            <a href="#relatos" class="btn">Descubrir historias</a>
+            
+            <div class="floating-quote">
+                Las palabras son mariposas que vuelan de mi mente a tu corazón.
+            </div>
         </div>
+        
+        <!-- NUEVO: Flecha para invitar al scroll -->
+        <a href="#premios" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+        
+        <!-- Elementos decorativos -->
+        <img src="https://www.transparenttextures.com/patterns/brushed-alum.png" alt="" class="ink-splatter top-right" aria-hidden="true">
     </section>
 
     <!-- Premios Section -->
-    <section class="premios" id="premios">
+    <section class="premios fade-in" id="premios">
         <div class="container">
-            <h2 class="section-title">Premios y Publicaciones</h2>
+            <h2 class="section-title">Premios y Reconocimientos</h2>
+            <p class="section-subtitle">Cada historia es un viaje que a veces encuentra puerto en el reconocimiento</p>
+            
             <div class="premios-grid">
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" alt="Imagen de la portada del libro ganador del Premio Nacional de Cuento Corto"></div>
+                    <span class="premio-fecha">2022</span>
                     <div class="premio-content">
                         <h3>Premio Nacional de Cuento Corto</h3>
-                        <p>Ganadora 2022 por el relato "El susurro del viento"</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <p>Galardonada por "El susurro del viento", un relato sobre el poder sanador de las palabras y la memoria perdida.</p>
+                        <a href="#" class="btn">Ver detalles</a>
                     </div>
                 </div>
                 
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" alt="Imagen del diploma del Concurso Internacional de Microrrelatos"></div>
+                    <span class="premio-fecha">2021</span>
                     <div class="premio-content">
                         <h3>Concurso Internacional de Microrrelatos</h3>
-                        <p>Finalista 2021 con "La última hoja del otoño"</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <p>Finalista con "La última hoja del otoño", una metáfora sobre el paso del tiempo y la belleza de lo efímero.</p>
+                        <a href="#" class="btn">Ver detalles</a>
                     </div>
                 </div>
                 
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');" alt="Imagen de la revista literaria con los relatos publicados"></div>
+                    <span class="premio-fecha">2023</span>
                     <div class="premio-content">
                         <h3>Publicación en Revista Literaria</h3>
-                        <p>Selección de tres relatos para la edición especial de verano 2023</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <p>Selección especial de tres relatos para la edición de verano que exploran la nostalgia y los caminos no tomados.</p>
+                        <a href="#" class="btn">Ver detalles</a>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="quill-divider" aria-hidden="true"></div>
     </section>
 
     <!-- Relatos Section -->
-    <section class="relatos" id="relatos">
+    <section class="relatos fade-in" id="relatos">
         <div class="container">
-            <h2 class="section-title">Relatos Breves</h2>
+            <h2 class="section-title">Relatos que perduran</h2>
+            <p class="section-subtitle">Palabras que tejen realidades entre estaciones y sentimientos</p>
             
             <div class="season-tabs">
                 <button class="tab-btn active" data-season="verano">Verano</button>
@@ -765,22 +1565,22 @@
                     <div class="relato-card">
                         <span class="fecha">Verano 2023</span>
                         <h3>La Brisa del Atardecer</h3>
-                        <p>En aquellos días calurosos de julio, cuando el sol quemaba con furia, ella encontraba refugio bajo la sombra del viejo almendro...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>En aquellos días calurosos de julio, cuando el sol quemaba con furia, ella encontraba refugio bajo la sombra del viejo almendro. Allí, entre susurros de hojas, comenzó a escribir lo que nunca se atrevió a decir...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card">
                         <span class="fecha">Verano 2022</span>
                         <h3>El Susurro del Mar</h3>
-                        <p>Las olas acariciaban la orilla con ritmo constante, como el latido de un corazón gigante. Cada noche, él caminaba por la playa buscando respuestas en el horizonte...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Las olas acariciaban la orilla con ritmo constante, como el latido de un corazón gigante. Cada noche, él caminaba por la playa buscando respuestas en el horizonte, donde el cielo besa al océano...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card">
                         <span class="fecha">Verano 2021</span>
                         <h3>El Jardín Secreto</h3>
-                        <p>Detrás de la casa abandonada, entre enredaderas salvajes, había un pequeño paraíso que solo florecía en los días más calurosos del año...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Detrás de la casa abandonada, entre enredaderas salvajes, había un pequeño paraíso que solo florecía en los días más calurosos del año. Un lugar donde los secretos germinaban como semillas olvidadas...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
@@ -790,22 +1590,22 @@
                     <div class="relato-card invierno">
                         <span class="fecha">Invierno 2023</span>
                         <h3>La Primera Niebla</h3>
-                        <p>Cuando la niebla cubrió el valle por primera vez aquel invierno, todo cambió. Las formas familiares se volvieron fantasmas, los sonidos se ahogaron en el algodón blanco...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Cuando la niebla cubrió el valle por primera vez aquel invierno, todo cambió. Las formas familiares se volvieron fantasmas, los sonidos se ahogaron en el algodón blanco y los pensamientos se volvieron más profundos...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card invierno">
                         <span class="fecha">Invierno 2022</span>
                         <h3>El Refugio del Abuelo</h3>
-                        <p>En la cabaña de montaña, con la chimenea crepitando, el abuelo contaba historias de otros inviernos, de tiempos en que la nieve aislaba el mundo exterior durante semanas...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>En la cabaña de montaña, con la chimenea crepitando, el abuelo contaba historias de otros inviernos, de tiempos en que la nieve aislaba el mundo exterior durante semanas, creando universos íntimos...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card invierno">
                         <span class="fecha">Invierno 2021</span>
                         <h3>Huellas en la Nieve</h3>
-                        <p>Aquel amanecer invernal, descubrí huellas que no eran mías. Pequeñas, delicadas, como de pájaro, pero que seguían un camino imposible hacia el bosque...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Aquel amanecer invernal, descubrí huellas que no eran mías. Pequeñas, delicadas, como de pájaro, pero que seguían un camino imposible hacia el bosque. Decidí seguirlas sin saber que cambiarían mi destino...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
@@ -815,22 +1615,22 @@
                     <div class="relato-card ideal">
                         <span class="fecha">Ideal 2023</span>
                         <h3>El Eco de las Montañas</h3>
-                        <p>Publicado en la edición de primavera de la revista Ideal. Un viaje interior a través de paisajes exteriores, donde cada paso revela una verdad olvidada...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Publicado en la edición de primavera de la revista Ideal. Un viaje interior a través de paisajes exteriores, donde cada paso revela una verdad olvidada y cada eco devuelve fragmentos del alma...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card ideal">
                         <span class="fecha">Ideal 2022</span>
                         <h3>La Última Hoja</h3>
-                        <p>Seleccionado para la antología de otoño de Ideal. Una reflexión sobre el paso del tiempo y la belleza de los finales que son también comienzos...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Seleccionado para la antología de otoño de Ideal. Una reflexión sobre el paso del tiempo y la belleza de los finales que son también comienzos. Un homenaje a la resiliencia de lo aparentemente frágil...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card ideal">
                         <span class="fecha">Ideal 2021</span>
                         <h3>El Puente de Cristal</h3>
-                        <p>Mención especial en el concurso de relatos de Ideal. Una metáfora sobre las relaciones humanas y la fragilidad de los vínculos que construimos...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Mención especial en el concurso de relatos de Ideal. Una metáfora sobre las relaciones humanas y la fragilidad de los vínculos que construimos, pero también sobre su belleza transparente y luminosa...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
@@ -838,9 +1638,11 @@
     </section>
 
     <!-- Microrrelatos Section -->
-    <section class="microrrelatos" id="microrrelatos">
+    <section class="microrrelatos fade-in" id="microrrelatos">
         <div class="container">
             <h2 class="section-title">Microrrelatos</h2>
+            <p class="section-subtitle">Universos concentrados en pocas palabras</p>
+            
             <div class="microrrelatos-grid">
                 <div class="micro-card">
                     <h3>El Faro</h3>
@@ -867,22 +1669,70 @@
                 </div>
             </div>
         </div>
+        
+        <div class="quill-divider" aria-hidden="true"></div>
+    </section>
+    
+    <!-- Nueva sección de Reseñas/Testimonios -->
+    <section class="reseñas fade-in">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen los lectores</h2>
+            
+            <div class="reseñas-slider">
+                <div class="reseña-slide active">
+                    <p>"Sus relatos tienen ese extraño poder de hacerte sentir en casa y perdido a la vez. Como si cada palabra fuera un camino hacia un lugar que siempre has conocido pero nunca has visitado."</p>
+                    <div class="reseña-autor">— María Sánchez, Revista Literaria Enclave</div>
+                </div>
+                
+                <div class="reseña-slide">
+                    <p>"La autora consigue, con una economía de palabras impresionante, construir universos enteros que resuenan durante días en la mente del lector. Sus microrrelatos son pequeñas joyas pulidas con maestría."</p>
+                    <div class="reseña-autor">— Carlos Mendoza, Crítico Literario</div>
+                </div>
+                
+                <div class="reseña-slide">
+                    <p>"Hay algo casi mágico en cómo mezcla lo cotidiano con lo extraordinario. Sus personajes parecen personas que podrías conocer, pero que esconden historias que te dejan sin aliento."</p>
+                    <div class="reseña-autor">— Laura Gil, Club de Lectura Palabras Compartidas</div>
+                </div>
+                
+                <div class="reseña-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva sección de Newsletter -->
+    <section class="newsletter fade-in">
+        <div class="container">
+            <div class="newsletter-container">
+                <h3>Recibe mis nuevos relatos en tu correo</h3>
+                <p>Suscríbete a mi boletín mensual y sé el primero en leer mis nuevas creaciones, conocer las próximas publicaciones y eventos literarios.</p>
+                
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico para suscripción">
+                    <button type="submit">Suscribirme</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contacto Section -->
-    <section class="contacto" id="contacto">
+    <section class="contacto fade-in" id="contacto">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title">Hablemos de historias</h2>
+            
             <div class="contacto-container">
                 <div class="contacto-info">
-                    <h3>¡Hablemos de historias!</h3>
-                    <p>Si quieres contactarme para colaboraciones, lecturas o simplemente compartir tu opinión sobre mis relatos, estaré encantada de escucharte.</p>
-                    <p>Puedes escribirme directamente a través del formulario o encontrarme en mis redes sociales.</p>
+                    <h3>Una pluma siempre dispuesta a dialogar</h3>
+                    <p>¿Tienes alguna pregunta sobre mis relatos? ¿Interesado en colaboraciones literarias o charlas sobre escritura creativa? Me encantaría escucharte.</p>
+                    <p>Cada mensaje es el comienzo de una nueva conversación, y quizás, de una nueva historia.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -920,12 +1770,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Escritora Creativa</h3>
-                    <p>Relatos que nacen del corazón y palabras que buscan resonar en el alma. Explorando emociones a través de la ficción breve.</p>
+                    <h3>Sobre la autora</h3>
+                    <p>Escritora de relatos breves y microrrelatos que exploran la condición humana, las relaciones interpersonales y los pequeños momentos que definen nuestras vidas.</p>
+                    <p>Mi pluma busca convertir lo cotidiano en extraordinario y descubrir la magia escondida en los rincones más inesperados.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Enlaces rápidos</h3>
+                    <h3>Explorar</h3>
                     <p><a href="#inicio" style="color: #bbb; text-decoration: none;">Inicio</a></p>
                     <p><a href="#premios" style="color: #bbb; text-decoration: none;">Premios</a></p>
                     <p><a href="#relatos" style="color: #bbb; text-decoration: none;">Relatos</a></p>
@@ -934,69 +1785,129 @@
                 
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p><i class="fas fa-envelope"></i> contacto@escritoracreativa.com</p>
+                    <p><i class="fas fa-envelope"></i> info@nombredelaescritora.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    <p><i class="fas fa-book"></i> Agente literario: Nombre del agente</p>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2023 Escritora Creativa. Todos los derechos reservados.
+                &copy; 2025 Nombre de la Escritora. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
     <script>
-        // Menú móvil
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+        // Código JavaScript anterior
         
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            nav.classList.toggle('active');
-            
-            // Bloquear scroll cuando el menú está abierto
-            if (nav.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-        
-        // Tabs para sección de relatos
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. Menú móvil
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                
+                if (nav.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // 2. Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // 3. Tabs para sección de relatos
             const tabBtns = document.querySelectorAll('.tab-btn');
             const seasonContents = document.querySelectorAll('.season-content');
             
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remover clase active de todos los botones
                     tabBtns.forEach(b => b.classList.remove('active'));
-                    // Añadir clase active al botón clickeado
                     btn.classList.add('active');
                     
-                    // Obtener el contenido a mostrar
                     const season = btn.getAttribute('data-season');
                     
-                    // Ocultar todos los contenidos
                     seasonContents.forEach(content => {
                         content.classList.remove('active');
                     });
                     
-                    // Mostrar el contenido correspondiente
                     document.getElementById(`${season}-content`).classList.add('active');
                 });
             });
             
-            // Smooth scrolling para enlaces de navegación
+            // 4. Slider de reseñas
+            const slides = document.querySelectorAll('.reseña-slide');
+            const dots = document.querySelectorAll('.dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIndex = dot.getAttribute('data-slide');
+                    showSlide(parseInt(slideIndex));
+                });
+            });
+            
+            setInterval(() => {
+                let nextSlide = currentSlide + 1;
+                if (nextSlide >= slides.length) nextSlide = 0;
+                showSlide(nextSlide);
+            }, 7000);
+            
+            // 5. NUEVO: Efecto máquina de escribir
+            const h1 = document.getElementById('typewriter-h1');
+            const text = "Mundos de tinta que cobran vida entre mis dedos";
+            h1.innerHTML = ""; // Limpiar por si acaso
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    h1.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 80); // Velocidad de escritura
+                } else {
+                    // Añadir cursor parpadeante al final
+                    h1.innerHTML += '<span class="typewriter-cursor"></span>';
+                }
+            }
+            
+            setTimeout(typeWriter, 500); // Empezar después de medio segundo
+            
+            // 6. Animación al hacer scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // 7. Smooth scrolling para enlaces de navegación
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1013,6 +1924,31 @@
                 });
             });
         });
+    </script>
+
+    
+    <!-- Esquema de datos estructurados para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nombre de la Escritora",
+      "url": "https://www.nombredelaescritora.com",
+      "jobTitle": "Escritora",
+      "sameAs": [
+        "https://twitter.com/nombredelaescritora",
+        "https://www.instagram.com/nombredelaescritora/",
+        "https://www.facebook.com/nombredelaescritora"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Editorial"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.nombredelaescritora.com"
+      }
+    }
     </script>
 </body>
 </html>
