@@ -1,3 +1,6 @@
+Aquí está el código completo con todos los cambios implementados para hacer la web más juvenil y atractiva:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,17 +9,19 @@
     <title>Escritora de Relatos | Premios y Publicaciones</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-verano: #FF6B6B;
-            --color-invierno: #4D96FF;
-            --color-ideal: #6BCB77;
-            --color-fondo: #F8F5F0;
-            --color-texto: #333333;
-            --color-acento: #FFD93D;
-            --color-blanco: #ffffff;
+            --color-primary: #FF006E;
+            --color-secondary: #8338EC;
+            --color-accent: #3A86FF;
+            --color-highlight: #06FFA5;
+            --color-dark: #0A0E27;
+            --color-light: #F7F7FF;
+            --gradient-1: linear-gradient(135deg, #FF006E 0%, #8338EC 100%);
+            --gradient-2: linear-gradient(135deg, #3A86FF 0%, #06FFA5 100%);
+            --gradient-3: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%);
         }
         
         * {
@@ -26,11 +31,26 @@
         }
         
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--color-dark);
+            color: var(--color-light);
             line-height: 1.6;
             overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23FF006E" opacity="0.8"/></svg>') 10 10, auto;
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-1);
+            border-radius: 5px;
         }
         
         .container {
@@ -41,8 +61,9 @@
         
         /* Header */
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -57,16 +78,20 @@
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            color: var(--color-texto);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
             z-index: 1001;
+            animation: pulse 2s ease-in-out infinite;
         }
         
-        .logo span {
-            color: var(--color-acento);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         nav ul {
@@ -80,7 +105,7 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--color-texto);
+            color: var(--color-light);
             font-weight: 500;
             font-size: 18px;
             position: relative;
@@ -94,8 +119,13 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--color-acento);
+            background: var(--gradient-1);
             transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-highlight);
+            text-shadow: 0 0 10px rgba(6, 255, 165, 0.5);
         }
         
         nav ul li a:hover::after {
@@ -113,7 +143,7 @@
         .menu-toggle span {
             height: 3px;
             width: 25px;
-            background: var(--color-texto);
+            background: var(--gradient-1);
             margin: 3px 0;
             border-radius: 3px;
             transition: all 0.3s ease;
@@ -121,76 +151,160 @@
         
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             margin-top: 70px;
+            background: linear-gradient(-45deg, #FF006E, #8338EC, #3A86FF, #06FFA5);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
-        .hero::before {
-            content: '';
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Elementos flotantes */
+        .floating-shapes {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(248, 245, 240, 0.8), rgba(248, 245, 240, 0.9)), 
-                        url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            right: 20%;
+            top: 50%;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 50%;
+            bottom: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(180deg); }
         }
         
         .hero-content {
             max-width: 600px;
-            animation: fadeInUp 1s ease;
+            z-index: 2;
+            position: relative;
         }
         
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 20px;
             line-height: 1.2;
+            font-weight: 800;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+        }
+        
+        .hero h1 .highlight-text {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             margin-bottom: 30px;
+            opacity: 0.9;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--color-acento);
-            color: var(--color-texto);
-            padding: 12px 30px;
-            border-radius: 30px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-2);
+            z-index: -1;
+            transition: left 0.3s ease;
+        }
+        
+        .btn:hover::before {
+            left: 0;
         }
         
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(131, 56, 236, 0.4);
+        }
+        
+        /* Secciones con patrón de fondo */
+        .section-pattern {
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238338EC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         /* Premios Section */
         .premios {
             padding: 100px 0;
-            background-color: white;
+            background: var(--gradient-3);
+            position: relative;
         }
         
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             text-align: center;
             margin-bottom: 60px;
             position: relative;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.5),
+                         0 0 40px rgba(255, 0, 110, 0.3);
         }
         
         .section-title::after {
@@ -199,34 +313,61 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--color-acento);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
         }
         
         .premios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .premio-card {
-            background: white;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        
+        .premio-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: rotate(45deg) translate(-100%, -100%);
+            transition: transform 0.6s;
+        }
+        
+        .premio-card:hover::after {
+            transform: rotate(45deg) translate(100%, 100%);
         }
         
         .premio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.3);
+            border-color: var(--color-primary);
         }
         
-        .premio-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .premio-emoji {
+            font-size: 3rem;
+            text-align: center;
+            padding: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .premio-content {
@@ -236,191 +377,257 @@
         .premio-content h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .premio-content p {
-            color: #666;
-            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
         }
         
         /* Relatos Section */
         .relatos {
             padding: 100px 0;
-            background-color: var(--color-fondo);
+            background: rgba(10, 14, 39, 0.95);
+            position: relative;
         }
         
         .season-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
         
         .tab-btn {
-            background: var(--color-blanco);
-            border: 2px solid var(--color-texto);
-            padding: 12px 25px;
-            font-size: 1rem;
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            padding: 15px 35px;
+            font-size: 1.1rem;
             cursor: pointer;
             position: relative;
             font-weight: 700;
-            color: var(--color-texto);
+            color: var(--color-light);
             transition: all 0.3s ease;
-            border-radius: 30px;
+            border-radius: 50px;
             min-width: 180px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
         }
         
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            z-index: -1;
+            transition: left 0.3s ease;
+        }
+        
+        .        .tab-btn:hover::before,
+        .tab-btn.active::before {
+            left: 0;
+        }
+        
+        .tab-btn:hover,
         .tab-btn.active {
-            color: var(--color-blanco);
-            border-color: transparent;
-        }
-        
-        .tab-btn[data-season="verano"]:hover, 
-        .tab-btn[data-season="verano"].active {
-            background: var(--color-verano);
-        }
-        
-        .tab-btn[data-season="invierno"]:hover, 
-        .tab-btn[data-season="invierno"].active {
-            background: var(--color-invierno);
-        }
-        
-        .tab-btn[data-season="ideal"]:hover, 
-        .tab-btn[data-season="ideal"].active {
-            background: var(--color-ideal);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
         }
         
         .season-content {
             display: none;
+            opacity: 0;
         }
         
         .season-content.active {
             display: block;
-            animation: fadeIn 0.8s ease;
+            animation: fadeInScale 0.5s ease forwards;
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .relatos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
         
         .relato-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
         }
         
+        .relato-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .relato-card:hover::before {
+            opacity: 0.1;
+        }
+        
         .relato-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(131, 56, 236, 0.3);
+            border-color: var(--color-secondary);
         }
         
         .relato-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            color: var(--color-texto);
+            color: var(--color-light);
+            font-weight: 700;
         }
         
         .relato-card .fecha {
             display: inline-block;
-            background-color: var(--color-verano);
+            background: var(--gradient-1);
             color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 30px;
             font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .relato-card.invierno .fecha {
-            background-color: var(--color-invierno);
-        }
-        
-        .relato-card.ideal .fecha {
-            background-color: var(--color-ideal);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .relato-card p {
-            margin-bottom: 20px;
-            color: #555;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
         }
         
         .leer-mas {
-            display: inline-block;
-            color: var(--color-texto);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-highlight);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .leer-mas:hover {
+            color: var(--color-primary);
+            transform: translateX(5px);
         }
         
         .leer-mas::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-acento);
-            transition: width 0.3s ease;
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
         
         .leer-mas:hover::after {
-            width: 100%;
+            transform: translateX(5px);
         }
         
         /* Microrrelatos */
         .microrrelatos {
             padding: 100px 0;
-            background-color: white;
+            background: var(--gradient-3);
+            position: relative;
         }
         
         .microrrelatos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .micro-card {
-            background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
             position: relative;
             transition: all 0.4s ease;
-            border-left: 4px solid var(--color-acento);
+            border-left: 4px solid var(--color-highlight);
+            overflow: hidden;
+        }
+        
+        .micro-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--color-primary);
+            opacity: 0.2;
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .micro-card:hover {
-            transform: rotate(1deg) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform: rotate(1deg) scale(1.05);
+            box-shadow: 0 15px 40px rgba(6, 255, 165, 0.2);
+            border-left-color: var(--color-primary);
         }
         
         .micro-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--color-highlight);
+            font-weight: 700;
         }
         
         .micro-card p {
             font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         .micro-card .autor {
             text-align: right;
-            font-weight: 500;
-            color: var(--color-texto);
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
         /* Contacto */
         .contacto {
             padding: 100px 0;
-            background-color: var(--color-fondo);
+            background: rgba(10, 14, 39, 0.95);
+            position: relative;
         }
         
         .contacto-container {
@@ -429,36 +636,92 @@
             align-items: flex-start;
         }
         
-        .contacto-info {
-            flex: 1;
+        .contacto-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contacto-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            border-radius: 50%;
+            text-align: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-1);
+            color: white;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+            border-color: transparent;
         }
         
         .contacto-form {
             flex: 1;
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--color-highlight);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Quicksand', sans-serif;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
             font-size: 1rem;
+            color: var(--color-light);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.2);
         }
         
         .form-group textarea {
@@ -468,8 +731,8 @@
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #333 0%, #111 100%);
-            color: white;
+            background: var(--color-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 50px 0 20px;
         }
         
@@ -477,65 +740,47 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            padding-right: 30px;
+            gap: 40px;
         }
         
         .footer-section h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
             position: relative;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--color-acento);
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
         
-        .footer-section p {
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #444;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--color-acento);
-            transform: translateY(-3px);
+        .footer-section a:hover {
+            color: var(--color-highlight);
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #bbb;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
         
-        /* Animaciones */
-        @keyframes fadeInUp {
+        /* Animaciones de entrada */
+        .animate-in {
+            animation: slideInUp 0.8s ease forwards;
+        }
+        
+        @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -543,30 +788,8 @@
             }
         }
         
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
-            /* Tablet styles */
             .contacto-container {
                 flex-direction: column;
                 gap: 30px;
@@ -584,7 +807,6 @@
         }
         
         @media (max-width: 768px) {
-            /* Mobile styles */
             .header-content {
                 padding: 10px 0;
             }
@@ -595,8 +817,9 @@
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background: var(--color-fondo);
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                background: rgba(10, 14, 39, 0.98);
+                backdrop-filter: blur(10px);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
                 transition: right 0.4s ease;
                 z-index: 1000;
                 padding: 80px 20px 20px;
@@ -637,7 +860,7 @@
             
             .hero {
                 margin-top: 60px;
-                height: auto;
+                min-height: 80vh;
                 padding: 80px 0;
             }
             
@@ -647,6 +870,7 @@
             
             .section-title {
                 margin-bottom: 40px;
+                font-size: 2rem;
             }
             
             .footer-content {
@@ -655,16 +879,18 @@
             
             .footer-section {
                 margin-bottom: 30px;
-                padding-right: 0;
             }
             
             .microrrelatos-grid, .premios-grid, .relatos-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .floating-shapes {
+                display: none;
+            }
         }
         
         @media (max-width: 480px) {
-            /* Small mobile adjustments */
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -675,7 +901,7 @@
             
             .tab-btn {
                 min-width: auto;
-                padding: 10px 20px;
+                padding: 12px 25px;
                 font-size: 0.9rem;
             }
         }
@@ -685,7 +911,7 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Escritora<span>Creativa</span></a>
+            <a href="#" class="logo">EscrituraViva</a>
             
             <div class="menu-toggle">
                 <span></span>
@@ -707,42 +933,47 @@
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="container hero-content">
-            <h1>Historias que inspiran, palabras que perduran</h1>
-            <p>Descubre el mundo de relatos breves y microrrelatos de una escritora premiada. Cada historia es una ventana a emociones y reflexiones que resuenan en el alma.</p>
-            <a href="#relatos" class="btn">Explorar relatos</a>
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+                <div class="container hero-content">
+            <h1>Historias que <span class="highlight-text">vibran</span> con tu alma</h1>
+            <p>Sumérgete en un universo de relatos únicos donde cada palabra es una experiencia. Descubre historias premiadas que desafían lo convencional.</p>
+            <a href="#relatos" class="btn">Explorar historias</a>
         </div>
     </section>
 
     <!-- Premios Section -->
-    <section class="premios" id="premios">
+    <section class="premios section-pattern" id="premios">
         <div class="container">
-            <h2 class="section-title">Premios y Publicaciones</h2>
+            <h2 class="section-title">Premios & Logros</h2>
             <div class="premios-grid">
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-emoji">🏆</div>
                     <div class="premio-content">
-                        <h3>Premio Nacional de Cuento Corto</h3>
-                        <p>Ganadora 2022 por el relato "El susurro del viento"</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <h3>Premio Nacional 2022</h3>
+                        <p>Ganadora del Premio Nacional de Cuento Corto por "El susurro del viento"</p>
+                        <a href="#" class="btn">Ver más</a>
                     </div>
                 </div>
                 
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1495640388908-05fa85288e61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-emoji">✨</div>
                     <div class="premio-content">
-                        <h3>Concurso Internacional de Microrrelatos</h3>
-                        <p>Finalista 2021 con "La última hoja del otoño"</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <h3>Finalista Internacional</h3>
+                        <p>Concurso Internacional de Microrrelatos 2021 con "La última hoja del otoño"</p>
+                        <a href="#" class="btn">Ver más</a>
                     </div>
                 </div>
                 
                 <div class="premio-card">
-                    <div class="premio-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="premio-emoji">📚</div>
                     <div class="premio-content">
-                        <h3>Publicación en Revista Literaria</h3>
-                        <p>Selección de tres relatos para la edición especial de verano 2023</p>
-                        <a href="#" class="btn">Leer más</a>
+                        <h3>Publicación Destacada</h3>
+                        <p>Tres relatos seleccionados para la edición especial de verano 2023</p>
+                        <a href="#" class="btn">Ver más</a>
                     </div>
                 </div>
             </div>
@@ -752,12 +983,12 @@
     <!-- Relatos Section -->
     <section class="relatos" id="relatos">
         <div class="container">
-            <h2 class="section-title">Relatos Breves</h2>
+            <h2 class="section-title">Relatos Épicos</h2>
             
             <div class="season-tabs">
-                <button class="tab-btn active" data-season="verano">Verano</button>
-                <button class="tab-btn" data-season="invierno">Invierno</button>
-                <button class="tab-btn" data-season="ideal">Publicados en Ideal</button>
+                <button class="tab-btn active" data-season="verano">🌞 Verano</button>
+                <button class="tab-btn" data-season="invierno">❄️ Invierno</button>
+                <button class="tab-btn" data-season="ideal">⭐ Ideal</button>
             </div>
             
             <div class="season-content active" id="verano-content">
@@ -765,72 +996,72 @@
                     <div class="relato-card">
                         <span class="fecha">Verano 2023</span>
                         <h3>La Brisa del Atardecer</h3>
-                        <p>En aquellos días calurosos de julio, cuando el sol quemaba con furia, ella encontraba refugio bajo la sombra del viejo almendro...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>En aquellos días calurosos de julio, cuando el sol quemaba con furia, ella encontraba refugio bajo la sombra del viejo almendro. Un relato sobre segundas oportunidades...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card">
                         <span class="fecha">Verano 2022</span>
                         <h3>El Susurro del Mar</h3>
-                        <p>Las olas acariciaban la orilla con ritmo constante, como el latido de un corazón gigante. Cada noche, él caminaba por la playa buscando respuestas en el horizonte...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Las olas acariciaban la orilla con ritmo constante, como el latido de un corazón gigante. Una historia de amor y pérdida en la costa mediterránea...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
                     <div class="relato-card">
                         <span class="fecha">Verano 2021</span>
                         <h3>El Jardín Secreto</h3>
                         <p>Detrás de la casa abandonada, entre enredaderas salvajes, había un pequeño paraíso que solo florecía en los días más calurosos del año...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
             
             <div class="season-content" id="invierno-content">
                 <div class="relatos-grid">
-                    <div class="relato-card invierno">
+                    <div class="relato-card">
                         <span class="fecha">Invierno 2023</span>
                         <h3>La Primera Niebla</h3>
-                        <p>Cuando la niebla cubrió el valle por primera vez aquel invierno, todo cambió. Las formas familiares se volvieron fantasmas, los sonidos se ahogaron en el algodón blanco...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Cuando la niebla cubrió el valle por primera vez aquel invierno, todo cambió. Las formas familiares se volvieron fantasmas en la bruma...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
-                    <div class="relato-card invierno">
+                    <div class="relato-card">
                         <span class="fecha">Invierno 2022</span>
                         <h3>El Refugio del Abuelo</h3>
-                        <p>En la cabaña de montaña, con la chimenea crepitando, el abuelo contaba historias de otros inviernos, de tiempos en que la nieve aislaba el mundo exterior durante semanas...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>En la cabaña de montaña, con la chimenea crepitando, el abuelo contaba historias de otros inviernos, cuando la nieve aislaba el mundo...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
-                    <div class="relato-card invierno">
+                    <div class="relato-card">
                         <span class="fecha">Invierno 2021</span>
                         <h3>Huellas en la Nieve</h3>
-                        <p>Aquel amanecer invernal, descubrí huellas que no eran mías. Pequeñas, delicadas, como de pájaro, pero que seguían un camino imposible hacia el bosque...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Aquel amanecer invernal, descubrí huellas que no eran mías. Pequeñas, delicadas, como de pájaro, pero siguiendo un camino imposible...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
             
             <div class="season-content" id="ideal-content">
                 <div class="relatos-grid">
-                    <div class="relato-card ideal">
+                    <div class="relato-card">
                         <span class="fecha">Ideal 2023</span>
                         <h3>El Eco de las Montañas</h3>
-                        <p>Publicado en la edición de primavera de la revista Ideal. Un viaje interior a través de paisajes exteriores, donde cada paso revela una verdad olvidada...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Publicado en la edición de primavera de la revista Ideal. Un viaje interior a través de paisajes exteriores...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
-                    <div class="relato-card ideal">
+                    <div class="relato-card">
                         <span class="fecha">Ideal 2022</span>
                         <h3>La Última Hoja</h3>
-                        <p>Seleccionado para la antología de otoño de Ideal. Una reflexión sobre el paso del tiempo y la belleza de los finales que son también comienzos...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Seleccionado para la antología de otoño de Ideal. Una reflexión sobre el paso del tiempo y la belleza de los finales...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                     
-                    <div class="relato-card ideal">
+                    <div class="relato-card">
                         <span class="fecha">Ideal 2021</span>
                         <h3>El Puente de Cristal</h3>
-                        <p>Mención especial en el concurso de relatos de Ideal. Una metáfora sobre las relaciones humanas y la fragilidad de los vínculos que construimos...</p>
-                        <a href="#" class="leer-mas">Leer completo →</a>
+                        <p>Mención especial en el concurso de relatos de Ideal. Una metáfora sobre las relaciones humanas y la fragilidad...</p>
+                        <a href="#" class="leer-mas">Leer completo</a>
                     </div>
                 </div>
             </div>
@@ -840,7 +1071,7 @@
     <!-- Microrrelatos Section -->
     <section class="microrrelatos" id="microrrelatos">
         <div class="container">
-            <h2 class="section-title">Microrrelatos</h2>
+            <h2 class="section-title">Micro Universos</h2>
             <div class="microrrelatos-grid">
                 <div class="micro-card">
                     <h3>El Faro</h3>
@@ -865,6 +1096,18 @@
                     <p>El día que dejó de mentirse a sí misma, su reflejo en el espejo sonrió por primera vez.</p>
                     <div class="autor">- Verdad reflejada</div>
                 </div>
+                
+                <div class="micro-card">
+                    <h3>La Carta</h3>
+                    <p>Escribió mil cartas de amor que nunca envió. El día que se atrevió a mandar una, descubrió que él había hecho lo mismo.</p>
+                    <div class="autor">- Destinos cruzados</div>
+                </div>
+                
+                <div class="micro-card">
+                    <h3>El Árbol</h3>
+                    <p>Plantó un árbol el día que nació su hija. Ahora, bajo su sombra, le cuenta a su nieta la misma historia.</p>
+                    <div class="autor">- Raíces eternas</div>
+                </div>
             </div>
         </div>
     </section>
@@ -872,40 +1115,41 @@
     <!-- Contacto Section -->
     <section class="contacto" id="contacto">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title">Conectemos</h2>
             <div class="contacto-container">
                 <div class="contacto-info">
                     <h3>¡Hablemos de historias!</h3>
-                    <p>Si quieres contactarme para colaboraciones, lecturas o simplemente compartir tu opinión sobre mis relatos, estaré encantada de escucharte.</p>
-                    <p>Puedes escribirme directamente a través del formulario o encontrarme en mis redes sociales.</p>
+                    <p>¿Tienes una historia que contar? ¿Quieres colaborar en un proyecto creativo? ¿O simplemente quieres compartir tu opinión sobre mis relatos?</p>
+                    <p>Me encantaría escucharte. Cada mensaje es una nueva historia esperando ser descubierta.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
                     </div>
                 </div>
                 
                 <div class="contacto-form">
                     <form>
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" required>
+                            <label for="nombre">Tu Nombre</label>
+                            <input type="text" id="nombre" placeholder="¿Cómo te llamas?" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" placeholder="tu@email.com" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="asunto">Asunto</label>
-                            <input type="text" id="asunto" required>
+                            <input type="text" id="asunto" placeholder="¿De qué quieres hablar?" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" required></textarea>
+                            <label for="mensaje">Tu Historia</label>
+                            <textarea id="mensaje" placeholder="Cuéntame tu historia..." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn">Enviar mensaje</button>
@@ -920,27 +1164,27 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Escritora Creativa</h3>
-                    <p>Relatos que nacen del corazón y palabras que buscan resonar en el alma. Explorando emociones a través de la ficción breve.</p>
+                    <h3>EscrituraViva</h3>
+                    <p>Creando mundos con palabras, un relato a la vez. Historias que resuenan con la generación digital.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Enlaces rápidos</h3>
-                    <p><a href="#inicio" style="color: #bbb; text-decoration: none;">Inicio</a></p>
-                    <p><a href="#premios" style="color: #bbb; text-decoration: none;">Premios</a></p>
-                    <p><a href="#relatos" style="color: #bbb; text-decoration: none;">Relatos</a></p>
-                    <p><a href="#microrrelatos" style="color: #bbb; text-decoration: none;">Microrrelatos</a></p>
+                    <p><a href="#inicio">Inicio</a></p>
+                    <p><a href="#premios">Premios</a></p>
+                    <p><a href="#relatos">Relatos</a></p>
+                    <p><a href="#microrrelatos">Microrrelatos</a></p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p><i class="fas fa-envelope"></i> contacto@escritoracreativa.com</p>
+                    <p><i class="fas fa-envelope"></i> hola@escrituraviva.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2023 Escritora Creativa. Todos los derechos reservados.
+                &copy; 2024 EscrituraViva. Todos los derechos reservados. Made with 💜
             </div>
         </div>
     </footer>
@@ -954,7 +1198,6 @@
             menuToggle.classList.toggle('active');
             nav.classList.toggle('active');
             
-            // Bloquear scroll cuando el menú está abierto
             if (nav.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -978,31 +1221,25 @@
             
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remover clase active de todos los botones
                     tabBtns.forEach(b => b.classList.remove('active'));
-                    // Añadir clase active al botón clickeado
                     btn.classList.add('active');
                     
-                    // Obtener el contenido a mostrar
                     const season = btn.getAttribute('data-season');
                     
-                    // Ocultar todos los contenidos
                     seasonContents.forEach(content => {
                         content.classList.remove('active');
                     });
                     
-                    // Mostrar el contenido correspondiente
                     document.getElementById(`${season}-content`).classList.add('active');
                 });
             });
             
-            // Smooth scrolling para enlaces de navegación
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    const targetId = this.getAttribute('href');                    const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
                         window.scrollTo({
@@ -1012,7 +1249,269 @@
                     }
                 });
             });
+            
+            // Animaciones al scroll con Intersection Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observar elementos para animar
+            document.querySelectorAll('.premio-card, .relato-card, .micro-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Efecto de texto letra por letra en el hero
+            const heroTitle = document.querySelector('.hero h1');
+            const text = heroTitle.innerHTML;
+            heroTitle.innerHTML = '';
+            
+            // Dividir el texto manteniendo las etiquetas HTML
+            const words = text.split(' ');
+            words.forEach((word, wordIndex) => {
+                if (word.includes('<span')) {
+                    // Manejar palabras con span
+                    heroTitle.innerHTML += word + ' ';
+                } else {
+                    // Palabras normales
+                    const letters = word.split('');
+                    letters.forEach((letter, letterIndex) => {
+                        const span = document.createElement('span');
+                        span.textContent = letter;
+                        span.style.setProperty('--char-index', wordIndex * 5 + letterIndex);
+                        span.style.display = 'inline-block';
+                        span.style.animation = 'slideIn 0.5s ease forwards';
+                        span.style.animationDelay = `${(wordIndex * 5 + letterIndex) * 0.05}s`;
+                        span.style.opacity = '0';
+                        span.style.transform = 'translateY(50px)';
+                        heroTitle.appendChild(span);
+                    });
+                    
+                    // Añadir espacio después de cada palabra
+                    if (wordIndex < words.length - 1) {
+                        const space = document.createElement('span');
+                        space.innerHTML = '&nbsp;';
+                        heroTitle.appendChild(space);
+                    }
+                }
+            });
+            
+            // Efecto parallax en las formas flotantes
+            const shapes = document.querySelectorAll('.shape');
+            
+            window.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 20;
+                    const xPos = (x - 0.5) * speed;
+                    const yPos = (y - 0.5) * speed;
+                    
+                    shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                });
+            });
+            
+            // Efecto de cursor personalizado
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            cursor.style.cssText = `
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--color-primary);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.1s ease;
+                mix-blend-mode: difference;
+            `;
+            document.body.appendChild(cursor);
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+            
+            // Cambiar cursor en hover sobre elementos interactivos
+            const interactiveElements = document.querySelectorAll('a, button, .premio-card, .relato-card, .micro-card');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.5)';
+                    cursor.style.backgroundColor = 'var(--color-primary)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.backgroundColor = 'transparent';
+                });
+            });
+            
+            // Animación de números en premios
+            const animateValue = (element, start, end, duration) => {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    element.textContent = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+            
+            // Efecto de escritura en el formulario
+            const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+            
+            // Validación del formulario con efectos visuales
+            const contactForm = document.querySelector('.contacto-form form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Animación de envío
+                const btn = this.querySelector('.btn');
+                const originalText = btn.textContent;
+                
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                btn.disabled = true;
+                
+                // Simular envío
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+                    btn.style.background = 'var(--gradient-2)';
+                    
+                    // Reset después de 3 segundos
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.style.background = '';
+                        contactForm.reset();
+                    }, 3000);
+                }, 2000);
+            });
+            
+            // Efecto de partículas en el background
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 4px;
+                    height: 4px;
+                    background: var(--color-highlight);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: 0;
+                    z-index: 1;
+                `;
+                
+                const startX = Math.random() * window.innerWidth;
+                const startY = window.innerHeight + 10;
+                
+                particle.style.left = startX + 'px';
+                particle.style.top = startY + 'px';
+                
+                document.body.appendChild(particle);
+                
+                // Animación
+                particle.animate([
+                    { 
+                        transform: 'translateY(0) scale(0)',
+                        opacity: 0
+                    },
+                    { 
+                        transform: `translateY(-${window.innerHeight / 2}px) scale(1)`,
+                        opacity: 1
+                    },
+                    { 
+                        transform: `translateY(-${window.innerHeight}px) scale(0)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: 3000 + Math.random() * 2000,
+                    easing: 'ease-out'
+                }).onfinish = () => particle.remove();
+            }
+            
+            // Crear partículas periódicamente
+            setInterval(createParticle, 300);
+            
+            // Easter egg: Konami code
+            const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+            let konamiIndex = 0;
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === konamiCode[konamiIndex]) {
+                    konamiIndex++;
+                    if (konamiIndex === konamiCode.length) {
+                        activateEasterEgg();
+                        konamiIndex = 0;
+                    }
+                } else {
+                    konamiIndex = 0;
+                }
+            });
+            
+            function activateEasterEgg() {
+                document.body.style.animation = 'rainbow 2s linear infinite';
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes rainbow {
+                        0% { filter: hue-rotate(0deg); }
+                        100% { filter: hue-rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    style.remove();
+                }, 10000);
+            }
         });
+        
+        // Prevenir el scroll cuando el menú móvil está abierto
+        let scrollPosition = 0;
+        
+        function disableScroll() {
+            scrollPosition = window.pageYOffset;
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+        }
+        
+        function enableScroll() {
+            document.body.style.removeProperty('overflow');
+            document.body.style.removeProperty('position');
+            document.body.style.removeProperty('top');
+            document.body.style.removeProperty('width');
+            window.scrollTo(0, scrollPosition);
+        }
     </script>
 </body>
 </html>
